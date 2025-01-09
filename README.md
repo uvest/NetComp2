@@ -4,6 +4,8 @@
 [![codecov](https://codecov.io/gh/peterewills/NetComp/branch/master/graph/badge.svg)](https://codecov.io/gh/peterewills/NetComp)
  
 NetComp is a Python library implementing various algorithms for comparison of networks. A network is a collection of nodes and edges, also known as a graph.
+
+THIS IS A FORK FROM THE [ORIGINAL NETCOMP](https://github.com/peterewills/NetComp) REPOSITORY BY PETER WILLS. THIS FORK SIMPLY UPDATED THE API TO BE COMPATIBLE WITH networkx >= 3.
  
 ## Installation
 
