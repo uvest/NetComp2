@@ -167,7 +167,8 @@ def renormalized_res_mat(A,beta=1):
         G = nx.from_numpy_array(A)
     n = len(G)
     subgraphR = []
-    for subgraph in nx.connected_component_subgraphs(G):
+    subgraphs = [G.subgraph(c) for c in nx.connected_components(G)]
+    for subgraph in subgraphs: #nx.connected_component_subgraphs(G):
         a_sub = nx.adjacency_matrix(subgraph)
         r_sub = resistance_matrix(a_sub)
         subgraphR.append(r_sub)
@@ -224,7 +225,8 @@ def conductance_matrix(A):
     else:
         G = nx.from_numpy_array(A)
     subgraphC = []
-    for subgraph in nx.connected_component_subgraphs(G):
+    subgraphs = [G.subgraph(c) for c in nx.connected_components(G)]
+    for subgraph in subgraphs:#nx.connected_component_subgraphs(G):
         a_sub = nx.adjacency_matrix(subgraph)
         r_sub = resistance_matrix(a_sub)
         m = len(subgraph)
