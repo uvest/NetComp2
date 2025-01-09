@@ -9,7 +9,7 @@ import networkx as nx
 import numpy as np
 from scipy import stats
 
-from netcomp.linalg import _eps
+from netcomp2.linalg import _eps
 
 def get_features(A):
     """Feature grabber for NetSimile algorithm. Features used are
@@ -39,12 +39,12 @@ def get_features(A):
 
     """
     try:
-        G = nx.from_scipy_sparse_matrix(A)
+        G = nx.from_scipy_sparse_array(A)
     except AttributeError:
-        G = nx.from_numpy_matrix(A)
+        G = nx.from_numpy_array(A)
     n = len(G)
     # degrees, array so we can slice nice
-    d_vec = np.array(list(G.degree().values()))
+    d_vec = np.array(list(dict(G.degree()).values()))
     # list of clustering coefficient
     clust_vec = np.array(list(nx.clustering(G).values()))
     neighbors = [G.neighbors(i) for i in range(n)]

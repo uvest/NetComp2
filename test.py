@@ -1,6 +1,6 @@
 # A trivial example, for now
 
-import netcomp as nc
+import netcomp2 as nc
 import networkx as nx
 
 # use networkx to build a sample graph

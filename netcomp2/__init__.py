@@ -1,5 +1,5 @@
 """
-NetComp v0.2.2
+NetComp2 v0.0.1
 ==============
 
     NetComp is a Python package for comparing networks using pairwise distances,
@@ -9,8 +9,8 @@ NetComp v0.2.2
 
 """
 
-__author__ = 'Peter Wills <peter.e.wills@gmail.com>'
-__version__ = '0.2.2'
+__author__ = 'Peter Wills <peter.e.wills@gmail.com>, Kai Streiling <kai.streiling@gmail.com>'
+__version__ = '0.0.1'
 __license__ = 'MIT'
 
 import sys
@@ -19,8 +19,8 @@ if sys.version_info[0] < 3:
     raise ImportError(m % sys.version_info[:2])
 del sys
 
-from netcomp.linalg import *
-import netcomp.linalg
+from netcomp2.linalg import *
+import netcomp2.linalg
 
-from netcomp.distance import *
-import netcomp.distance
+from netcomp2.distance import *
+import netcomp2.distance

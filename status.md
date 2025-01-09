@@ -1,5 +1,8 @@
 # NetComp Status and TODO
 
+### January 9, 2025
+Updating the package to run with networkx >=3
+
 ### October 13, 2017
 
 ## STATUS

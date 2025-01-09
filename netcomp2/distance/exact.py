@@ -11,11 +11,11 @@ import numpy as np
 from numpy import linalg as la
 import networkx as nx
 
-from netcomp.linalg import (renormalized_res_mat,resistance_matrix,
+from netcomp2.linalg import (renormalized_res_mat,resistance_matrix,
                             fast_bp,laplacian_matrix,normalized_laplacian_eig,
                             _flat,_pad,_eigs)
-from netcomp.distance import get_features,aggregate_features
-from netcomp.exception import InputError
+from netcomp2.distance import get_features,aggregate_features
+from netcomp2.exception import InputError
 
 
 ######################
@@ -85,9 +85,9 @@ def vertex_edge_overlap(A1,A2):
 
     """
     try:
-        [G1,G2] = [nx.from_scipy_sparse_matrix(A) for A in [A1,A2]]
+        [G1,G2] = [nx.from_scipy_sparse_array(A) for A in [A1,A2]]
     except AttributeError:
-        [G1,G2] = [nx.from_numpy_matrix(A) for A in [A1,A2]]
+        [G1,G2] = [nx.from_numpy_array(A) for A in [A1,A2]]
     V1,V2 = [set(G.nodes()) for G in [G1,G2]]
     E1,E2 = [set(G.edges()) for G in [G1,G2]]
     V_overlap = len(V1|V2) # set union
@@ -171,15 +171,15 @@ def lambda_dist(A1,A2,k=None,p=2,kind='laplacian'):
     N = min(n1,n2) # minimum size between the two graphs
     if k is None or k > N:
         k = N
-    if kind is 'laplacian':
+    if kind == 'laplacian':
         # form matrices
         L1,L2 = [laplacian_matrix(A) for A in [A1,A2]]
         # get eigenvalues, ignore eigenvectors
         evals1,evals2 = [_eigs(L)[0] for L in [L1,L2]]
-    elif kind is 'laplacian_norm':
+    elif kind == 'laplacian_norm':
         # use our function to graph evals of normalized laplacian
         evals1,evals2 = [normalized_laplacian_eig(A)[0] for A in [A1,A2]]
-    elif kind is 'adjacency':
+    elif kind == 'adjacency':
         evals1,evals2 = [_eigs(A)[0] for A in [A1,A2]]
         # reverse, so that we are sorted from large to small, since we care
         # about the k LARGEST eigenvalues for the adjacency distance
