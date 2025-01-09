@@ -1,4 +1,4 @@
-# NetComp v0.2
+# NetComp2 v0.0.1
 
 [![Travis CI](https://travis-ci.org/peterewills/NetComp.svg?branch=master)](https://travis-ci.org/peterewills/NetComp)
 [![codecov](https://codecov.io/gh/peterewills/NetComp/branch/master/graph/badge.svg)](https://codecov.io/gh/peterewills/NetComp)
@@ -6,10 +6,19 @@
 NetComp is a Python library implementing various algorithms for comparison of networks. A network is a collection of nodes and edges, also known as a graph.
  
 ## Installation
- 
-To install NetComp, do
 
-	pip install netcomp
+Local installation:
+
+1. Clone locally
+2. Install locally with pip
+
+```bash
+python -m pip install -e ./NetComp2
+```
+ 
+<!-- To install NetComp, do
+
+	pip install netcomp -->
  
 ## Usage
 
