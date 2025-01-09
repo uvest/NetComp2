@@ -47,8 +47,8 @@ def get_features(A):
     d_vec = np.array(list(dict(G.degree()).values()))
     # list of clustering coefficient
     clust_vec = np.array(list(nx.clustering(G).values()))
-    neighbors = [G.neighbors(i) for i in range(n)]
-    # average degree of neighbors (0 if node is isolated)
+    neighbors = [list(G.neighbors(i)) for i in range(n)]
+    # aevrage degree of neighbors (0 if node is isolated)
     neighbor_deg = [d_vec[neighbors[i]].sum()/d_vec[i]
                     if d_vec[i]>_eps else 0 for i in range(n)]
     # avg. clustering coefficient of neighbors (0 if node is isolated)
